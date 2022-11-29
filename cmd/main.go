@@ -13,6 +13,7 @@ func handleRequest() {
 	r.HandleFunc("/catalog", handlers.Catalog)
 	r.HandleFunc("/contact", handlers.Contact)
 	r.HandleFunc("/about", handlers.AboutUs)
+	r.HandleFunc("/payment", handlers.Payment)
 
 	http.Handle("/", r)
 
@@ -20,6 +21,5 @@ func handleRequest() {
 }
 
 func main() {
-
 	handleRequest()
 }

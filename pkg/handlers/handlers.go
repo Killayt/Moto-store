@@ -2,29 +2,47 @@ package handlers
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
-
-	"github.com/Killayt/Moto-store/pkg/model"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	var bob model.Product
-	bob1 := bob.NewProduct(1, "Bob", "BOB IS BOB", 14.99, 0)
-	fmt.Fprintf(w, bob1.Name)
+	tmpl, err := template.ParseFiles("web/templates/index.html")
+	if err != nil {
+		fmt.Println("Error parse templates\n\n", err.Error())
+	}
+	tmpl.Execute(w, tmpl)
+
 }
 
 func AboutUs(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "AboutUs")
+	tmpl, err := template.ParseFiles("web/templates/about.html")
+	if err != nil {
+		fmt.Println("Error parse templates\n\n", err.Error())
+	}
+	tmpl.Execute(w, tmpl)
 }
 
 func Contact(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Contact")
+	tmpl, err := template.ParseFiles("web/templates/contact.html")
+	if err != nil {
+		fmt.Println("Error parse templates\n\n", err.Error())
+	}
+	tmpl.Execute(w, tmpl)
 }
 
-func SendAndPay(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "SendAndPay")
+func Payment(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.ParseFiles("web/templates/payment.html")
+	if err != nil {
+		fmt.Println("Error parse templates\n\n", err.Error())
+	}
+	tmpl.Execute(w, tmpl)
 }
 
 func Catalog(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Catalog")
+	tmpl, err := template.ParseFiles("web/templates/catalog.html")
+	if err != nil {
+		fmt.Println("Error parse templates\n\n", err.Error())
+	}
+	tmpl.Execute(w, tmpl)
 }
