@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+
+	"github.com/Killayt/Moto-store/pkg/model"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
@@ -11,8 +13,14 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, tmpl)
 
+	homePage := model.Page{
+		Title:   "Home",
+		Text:    "hueta",
+		Product: model.Product{},
+	}
+
+	tmpl.Execute(w, homePage)
 }
 
 func AboutUs(w http.ResponseWriter, r *http.Request) {
@@ -20,7 +28,14 @@ func AboutUs(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, tmpl)
+
+	aboutPage := model.Page{
+		Title:   "About us",
+		Text:    "hueta",
+		Product: model.Product{},
+	}
+
+	tmpl.Execute(w, aboutPage)
 }
 
 func Contact(w http.ResponseWriter, r *http.Request) {
@@ -28,7 +43,14 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, tmpl)
+
+	contactPage := model.Page{
+		Title:   "Contact",
+		Text:    "hueta",
+		Product: model.Product{},
+	}
+
+	tmpl.Execute(w, contactPage)
 }
 
 func Payment(w http.ResponseWriter, r *http.Request) {
@@ -36,7 +58,14 @@ func Payment(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, tmpl)
+
+	paymentPage := model.Page{
+		Title:   "Payment",
+		Text:    "hueta",
+		Product: model.Product{},
+	}
+
+	tmpl.Execute(w, paymentPage)
 }
 
 func Catalog(w http.ResponseWriter, r *http.Request) {
@@ -44,5 +73,12 @@ func Catalog(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, tmpl)
+
+	catalogPage := model.Page{
+		Title:   "Catalog",
+		Text:    "hueta",
+		Product: model.Product{},
+	}
+
+	tmpl.Execute(w, catalogPage)
 }
