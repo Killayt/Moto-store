@@ -15,7 +15,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/templates/index.html")
+	tmpl, err := template.ParseFiles("web/templates/index.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
@@ -29,7 +29,7 @@ func AboutUs(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/templates/about.html")
+	tmpl, err := template.ParseFiles("web/front-end/about.html")
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
@@ -43,7 +43,7 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/templates/contact.html")
+	tmpl, err := template.ParseFiles("web/front-end/contact.html")
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
@@ -57,7 +57,7 @@ func Payment(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/templates/payment.html")
+	tmpl, err := template.ParseFiles("web/front-end/payment.html")
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
@@ -71,7 +71,7 @@ func Catalog(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/templates/catalog.html")
+	tmpl, err := template.ParseFiles("web/fornd-end/catalog.html")
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
