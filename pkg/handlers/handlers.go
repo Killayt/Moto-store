@@ -11,7 +11,7 @@ import (
 func Home(w http.ResponseWriter, r *http.Request) {
 	homePage := model.Page{
 		Title:   "Home",
-		Text:    "hueta",
+		Text:    "This is home page",
 		Product: model.Product{},
 	}
 
@@ -19,7 +19,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, homePage)
+	tmpl.ExecuteTemplate(w, "index", homePage)
 }
 
 func AboutUs(w http.ResponseWriter, r *http.Request) {

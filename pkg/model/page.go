@@ -1,15 +1,8 @@
 package model
 
 type Page struct {
-	Title   string  `json:"title"`
-	Text    string  `json:"text"`
-	Product Product `json:"product"`
+	Page_ID int32   `json:"page_id"`
+	Title   string  `json:"page_title"`
+	Text    string  `json:"page_text"`
+	Product Product `json:"page_product"`
 }
-
-// func (p Page) CreateNewPage(title, text string, product Product) *Page {
-// 	return &Page{
-// 		Title:   title,
-// 		Text:    text,
-// 		Product: product,
-// 	}
-// }
