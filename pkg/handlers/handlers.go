@@ -1,11 +1,11 @@
 package handlers
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 
 	"github.com/Killayt/Moto-store/pkg/model"
+	log "github.com/sirupsen/logrus"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
@@ -17,7 +17,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 	tmpl, err := template.ParseFiles("web/templates/index.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
-		fmt.Println("Error parse templates\n\n", err.Error())
+		log.Errorln("Error parse templates\n\n", err.Error())
 	}
 	tmpl.ExecuteTemplate(w, "index", homePage)
 }
@@ -31,9 +31,9 @@ func AboutUs(w http.ResponseWriter, r *http.Request) {
 
 	tmpl, err := template.ParseFiles("web/front-end/about.html")
 	if err != nil {
-		fmt.Println("Error parse templates\n\n", err.Error())
+		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, aboutPage)
+	tmpl.ExecuteTemplate(w, "about", aboutPage)
 }
 
 func Contact(w http.ResponseWriter, r *http.Request) {
@@ -43,11 +43,11 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/front-end/contact.html")
+	tmpl, err := template.ParseFiles("web/templates/header.html", "web/templates/contact.html", "web/templates/footer.html")
 	if err != nil {
-		fmt.Println("Error parse templates\n\n", err.Error())
+		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, contactPage)
+	tmpl.ExecuteTemplate(w, "contact", contactPage)
 }
 
 func Payment(w http.ResponseWriter, r *http.Request) {
@@ -59,9 +59,9 @@ func Payment(w http.ResponseWriter, r *http.Request) {
 
 	tmpl, err := template.ParseFiles("web/front-end/payment.html")
 	if err != nil {
-		fmt.Println("Error parse templates\n\n", err.Error())
+		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, paymentPage)
+	tmpl.ExecuteTemplate(w, "payment", paymentPage)
 }
 
 func Catalog(w http.ResponseWriter, r *http.Request) {
@@ -71,9 +71,9 @@ func Catalog(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/fornd-end/catalog.html")
+	tmpl, err := template.ParseFiles("web/templates/catalog.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
-		fmt.Println("Error parse templates\n\n", err.Error())
+		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.Execute(w, catalogPage)
+	tmpl.ExecuteTemplate(w, "catalog", catalogPage)
 }
