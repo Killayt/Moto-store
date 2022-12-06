@@ -29,7 +29,7 @@ func AboutUs(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/front-end/about.html")
+	tmpl, err := template.ParseFiles("web/templates/about.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
 		log.Errorln("Error parse templates\n\n", err.Error())
 	}
@@ -57,7 +57,7 @@ func Payment(w http.ResponseWriter, r *http.Request) {
 		Product: model.Product{},
 	}
 
-	tmpl, err := template.ParseFiles("web/front-end/payment.html")
+	tmpl, err := template.ParseFiles("web/templates/payment.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
 		log.Errorln("Error parse templates\n\n", err.Error())
 	}
