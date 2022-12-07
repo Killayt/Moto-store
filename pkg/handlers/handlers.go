@@ -4,76 +4,45 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/Killayt/Moto-store/pkg/model"
 	log "github.com/sirupsen/logrus"
 )
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	homePage := model.Page{
-		Title:   "Home",
-		Text:    "This is home page",
-		Product: model.Product{},
-	}
-
+func Index(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("web/templates/index.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
 		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.ExecuteTemplate(w, "index", homePage)
+	tmpl.ExecuteTemplate(w, "index", nil)
 }
 
 func AboutUs(w http.ResponseWriter, r *http.Request) {
-	aboutPage := model.Page{
-		Title:   "About us",
-		Text:    "hueta",
-		Product: model.Product{},
-	}
-
 	tmpl, err := template.ParseFiles("web/templates/about.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
 		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.ExecuteTemplate(w, "about", aboutPage)
+	tmpl.ExecuteTemplate(w, "about", nil)
 }
 
 func Contact(w http.ResponseWriter, r *http.Request) {
-	contactPage := model.Page{
-		Title:   "Contact",
-		Text:    "hueta",
-		Product: model.Product{},
-	}
-
 	tmpl, err := template.ParseFiles("web/templates/header.html", "web/templates/contact.html", "web/templates/footer.html")
 	if err != nil {
 		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.ExecuteTemplate(w, "contact", contactPage)
+	tmpl.ExecuteTemplate(w, "contact", nil)
 }
 
 func Payment(w http.ResponseWriter, r *http.Request) {
-	paymentPage := model.Page{
-		Title:   "Payment",
-		Text:    "hueta",
-		Product: model.Product{},
-	}
-
 	tmpl, err := template.ParseFiles("web/templates/payment.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
 		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.ExecuteTemplate(w, "payment", paymentPage)
+	tmpl.ExecuteTemplate(w, "payment", nil)
 }
 
 func Catalog(w http.ResponseWriter, r *http.Request) {
-	catalogPage := model.Page{
-		Title:   "Catalog",
-		Text:    "hueta",
-		Product: model.Product{},
-	}
-
 	tmpl, err := template.ParseFiles("web/templates/catalog.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
 		log.Errorln("Error parse templates\n\n", err.Error())
 	}
-	tmpl.ExecuteTemplate(w, "catalog", catalogPage)
+	tmpl.ExecuteTemplate(w, "catalog", nil)
 }
