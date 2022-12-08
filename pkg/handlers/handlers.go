@@ -1,16 +1,15 @@
 package handlers
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
-
-	log "github.com/sirupsen/logrus"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("web/templates/index.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
-		log.Errorln("Error parse templates\n\n", err.Error())
+		fmt.Fprintf(w, "Error with `index` template")
 	}
 	tmpl.ExecuteTemplate(w, "index", nil)
 }
@@ -18,7 +17,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func AboutUs(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("web/templates/about.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
-		log.Errorln("Error parse templates\n\n", err.Error())
+		fmt.Fprintf(w, "Error with `about us` template")
 	}
 	tmpl.ExecuteTemplate(w, "about", nil)
 }
@@ -26,7 +25,7 @@ func AboutUs(w http.ResponseWriter, r *http.Request) {
 func Contact(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("web/templates/header.html", "web/templates/contact.html", "web/templates/footer.html")
 	if err != nil {
-		log.Errorln("Error parse templates\n\n", err.Error())
+		fmt.Fprintf(w, "Error with `contact` template")
 	}
 	tmpl.ExecuteTemplate(w, "contact", nil)
 }
@@ -34,7 +33,7 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 func Payment(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("web/templates/payment.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
-		log.Errorln("Error parse templates\n\n", err.Error())
+		fmt.Fprintf(w, "Error with `payment` template")
 	}
 	tmpl.ExecuteTemplate(w, "payment", nil)
 }
@@ -42,7 +41,7 @@ func Payment(w http.ResponseWriter, r *http.Request) {
 func Catalog(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("web/templates/catalog.html", "web/templates/header.html", "web/templates/footer.html")
 	if err != nil {
-		log.Errorln("Error parse templates\n\n", err.Error())
+		fmt.Fprintf(w, "Error with `catalog` template")
 	}
 	tmpl.ExecuteTemplate(w, "catalog", nil)
 }
