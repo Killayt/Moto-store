@@ -21,5 +21,6 @@ In particular, connect the database, interact with them: get data and add it, as
 <ul>
     <li>MySQL</li>
     <li>gorilla/mux</li>
+    <li>MySQL</li>
     <li>go-sql-driver</li>
 </ul>
