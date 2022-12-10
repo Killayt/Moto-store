@@ -10,12 +10,13 @@ import (
 
 func handleRequest() error {
 	r := mux.NewRouter()
-	r.HandleFunc("/", handlers.Index)
-	r.HandleFunc("/createProduct", handlers.CreateProduct)
-	r.HandleFunc("/catalog", handlers.Catalog)
-	r.HandleFunc("/contact", handlers.Contact)
-	r.HandleFunc("/about", handlers.AboutUs)
-	r.HandleFunc("/payment", handlers.Payment)
+	r.HandleFunc("/", handlers.Index).Methods("GET")
+	r.HandleFunc("/createProduct", handlers.CreateProduct).Methods("GET")
+	r.HandleFunc("/saveArticle", handlers.SaveArticle).Methods("POST")
+	r.HandleFunc("/catalog", handlers.Catalog).Methods("GET")
+	r.HandleFunc("/contact", handlers.Contact).Methods("GET")
+	r.HandleFunc("/about", handlers.AboutUs).Methods("GET")
+	r.HandleFunc("/payment", handlers.Payment).Methods("POST")
 
 	http.Handle("/", r)
 

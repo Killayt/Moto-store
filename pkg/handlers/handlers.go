@@ -1,9 +1,11 @@
 package handlers
 
 import (
+	"database/sql"
 	"fmt"
 	"html/template"
 	"net/http"
+	"os"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -54,4 +56,28 @@ func CreateProduct(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Erorr with template. Try again")
 	}
 	tmpl.ExecuteTemplate(w, "createProduct", nil)
+}
+
+func SaveArticle(w http.ResponseWriter, r *http.Request) {
+	title := r.FormValue("title")
+	anons := r.FormValue("anons")
+	text := r.FormValue("full_text")
+
+	if title == "" || anons == "" || text == "" { // checking validaty
+		fmt.Fprintf(w, "Input form is null")
+	} else {
+		db, err := sql.Open("mysql", os.Getenv("DB_NAME")+":"+os.Getenv("DB_PASS")+"@tcp(127.0.0.1"+os.Getenv("DB_PORT")+")/articles")
+		if err != nil {
+			fmt.Fprintf(w, "Error to connect to database")
+		}
+		defer db.Close()
+
+		insert, err := db.Query(fmt.Sprintf("INSERT INTO `Articles` (`title`, `anons`, `full_text`) VALUES (`%s`, `%s`, `%s`)", title, anons, text))
+		if err != nil {
+			fmt.Fprintf(w, "Error to insert into database")
+		}
+		defer insert.Close()
+
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+	}
 }
