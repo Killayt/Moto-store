@@ -1,0 +1,20 @@
+{{ define "createProduct" }}
+
+{{ template "header" }}
+
+<main>
+    <h1>Создать продукт</h1>
+    <form action="/сreate_product" method="post">
+        <input type="text" name="title" id="title" placeholder="Введите наименование товара" class="form-control">
+        <br>
+        <textarea name="anons" id="anons" class="form-control" placeholder="Введите анонс статьи"></textarea>
+        <br>
+        <textarea name="full_text" id="full_text" class="form-control" placeholder="Введите полный текст статьи"></textarea>
+        <br>
+
+        <button class="btn btn-warning">Создать</button>
+    </form>    
+</main>
+
+{{ template "footer" }}
+{{ end }}

@@ -11,6 +11,7 @@ import (
 func handleRequest() error {
 	r := mux.NewRouter()
 	r.HandleFunc("/", handlers.Index)
+	r.HandleFunc("/createProduct", handlers.CreateProduct)
 	r.HandleFunc("/catalog", handlers.Catalog)
 	r.HandleFunc("/contact", handlers.Contact)
 	r.HandleFunc("/about", handlers.AboutUs)

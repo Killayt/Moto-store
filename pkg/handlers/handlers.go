@@ -45,3 +45,13 @@ func Catalog(w http.ResponseWriter, r *http.Request) {
 	}
 	tmpl.ExecuteTemplate(w, "catalog", nil)
 }
+
+// Methods
+
+func CreateProduct(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.ParseFiles("web/methods/createProduct.html", "web/templates/header.html", "web/templates/footer.html")
+	if err != nil {
+		fmt.Fprintf(w, "Erorr with template. Try again")
+	}
+	tmpl.ExecuteTemplate(w, "createProduct", nil)
+}
